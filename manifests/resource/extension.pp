@@ -19,8 +19,7 @@ define php::resource::extension (
 ) {
   package { "php-${name}":
     ensure  => latest,
-    name    => "${prefix}${name}",
-    require => Class['php']
+    name    => "${prefix}${name}"
   }
 
   if $has_service {
