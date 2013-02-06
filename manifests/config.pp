@@ -31,6 +31,13 @@ class php::config (
   }
 
   if $use_phpfpm {
+    file { $php::params::fpm_pool_dir:
+      ensure  => directory,
+      purge   => true,
+      recurse => true,
+      force   => true
+    }
+
     file { $php::params::fpm_ini:
       ensure  => file,
       content => template('php/php.ini.erb'),
