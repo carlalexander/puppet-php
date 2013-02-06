@@ -26,7 +26,7 @@
 # Sample Usage:
 #
 #  php::resource::pool { 'www': }
-define php::resource::pool
+define php::resource::pool (
   $user                      = 'www-data',
   $group                     = 'www-data',
   $listen                    = '/var/run/php5-fpm.sock',
