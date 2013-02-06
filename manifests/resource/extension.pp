@@ -20,7 +20,7 @@ define php::resource::extension (
   package { "php-${name}":
     ensure  => latest,
     name    => "${prefix}${name}",
-    notify  => Class['php::config']
+    require => Class['php::config']
   }
 
   if $has_service {

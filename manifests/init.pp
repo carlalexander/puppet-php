@@ -26,6 +26,12 @@ class php (
 )inherits php::params {
   class { 'php::package': }
 
+  class { 'php::config':
+    use_apc    => $use_apc,
+    use_phpfpm => $use_phpfpm,
+    require    => Class['php::package']
+  }
+
   if $use_apc {
     php::resource::extension { 'apc':
       prefix => 'php-',
