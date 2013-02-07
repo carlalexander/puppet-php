@@ -44,7 +44,7 @@ class php (
     }
   }
 
-  if $extension {
+  if $extensions {
     php::resource::extension { $extensions: }
   }
 }
