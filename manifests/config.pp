@@ -31,11 +31,16 @@ class php::config (
   }
 
   if $use_phpfpm {
+    file { $php::params::fpm_dir:
+      ensure  => directory,
+    }
+
     file { $php::params::fpm_pool_dir:
       ensure  => directory,
       purge   => true,
       recurse => true,
-      force   => true
+      force   => true,
+      require => File[$php::params::fpm_dir]
     }
 
     file { $php::params::fpm_ini:
