@@ -23,7 +23,7 @@ define php::resource::extension (
     require => Class['php::config']
   }
 
-  if $has_service {
+  if ($has_service) {
     service { "php5-${name}":
       ensure     => running,
       enable     => true,

@@ -47,12 +47,12 @@ define php::resource::pool (
     owner => 'root',
     group => 'root',
     mode  => '0644',
+    before  => Service['php5-fpm'],
   }
 
   file { "${name}.conf":
     ensure  => file,
     path    => "${php::params::fpm_pool_dir}/${name}.conf",
     content => template('php/pool.d.conf.erb'),
-    before  => Service['php5-fpm'],
   }
 }
