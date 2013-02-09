@@ -6,7 +6,7 @@ Puppet module designed to manage PHP.
 
 Currently only tested using Ubuntu Quantal.
 
-## Setup
+## Usage
 
 To install and bootstrap php, simply add the class defintion:
 
