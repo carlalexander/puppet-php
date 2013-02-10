@@ -4,8 +4,6 @@
 #
 # Parameters:
 #
-#   [*use_apc*]    - Use APC extension
-#   [*use_phpfpm*] - Use PHP-FPM service
 #   [*extensions*] - List of extensions to install
 #
 # Actions:
@@ -20,8 +18,6 @@
 #   class { 'php': }
 # }
 class php (
-  $use_apc    = false,
-  $use_phpfpm = false,
   $extensions = undef
 )inherits php::params {
   class { 'php::package': }
@@ -32,19 +28,19 @@ class php (
     require    => Class['php::package']
   }
 
-  if $use_apc {
-    php::resource::extension { 'apc':
+  if $extensions {
+    php::resource::extension { $extensions: }
+  }
+
+  if ('apc' in $extensions) {
+    php::resource::extension['apc'] {
       prefix => 'php-',
     }
   }
 
-  if $use_phpfpm {
-    php::resource::extension { 'fpm':
+  if ('fpm' in $extensions) {
+    Php::Resource::Extension['fpm'] {
       has_service => true,
     }
-  }
-
-  if $extensions {
-    php::resource::extension { $extensions: }
   }
 }
