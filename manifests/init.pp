@@ -42,5 +42,8 @@ class php (
     Php::Resource::Extension['fpm'] {
       has_service => true,
     }
+    Class['php::config'] {
+      use_phpfpm => true
+    }
   }
 }

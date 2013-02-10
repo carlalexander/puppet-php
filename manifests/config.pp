@@ -14,7 +14,6 @@
 #
 # This class file is not called directly
 class php::config (
-  $use_apc    = false,
   $use_phpfpm = false,
 ) inherits php::params {
   File {
