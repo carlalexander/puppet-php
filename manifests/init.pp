@@ -33,7 +33,7 @@ class php (
   }
 
   if ('apc' in $extensions) {
-    php::resource::extension['apc'] {
+    Php::Resource::Extension['apc'] {
       prefix => 'php-',
     }
   }
