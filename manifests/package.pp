@@ -14,7 +14,7 @@
 #
 # This class file is not called directly
 class php::package {
-  package { 'php5':
+  package { 'php5-cli':
     ensure => latest,
   }
 }

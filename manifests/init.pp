@@ -30,7 +30,7 @@ class php (
     require    => Class['php::package']
   }
 
-  if $extensions {
+  if ($extensions != undef) {
     php::resource::extension { $extensions: }
   }
 
