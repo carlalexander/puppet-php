@@ -23,7 +23,6 @@ class php (
   class { 'php::package': }
 
   class { 'php::config':
-    use_apc    => $use_apc,
     use_phpfpm => $use_phpfpm,
     require    => Class['php::package']
   }
