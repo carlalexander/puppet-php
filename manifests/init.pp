@@ -20,6 +20,9 @@
 class php (
   $extensions = undef
 )inherits php::params {
+  $use_phpfpm = 'fpm' in $extensions
+  $use_apc    = 'apc' in $extensions
+
   class { 'php::package': }
 
   class { 'php::config':
@@ -31,18 +34,15 @@ class php (
     php::resource::extension { $extensions: }
   }
 
-  if ('apc' in $extensions) {
+  if ($use_apc) {
     Php::Resource::Extension['apc'] {
       prefix => 'php-',
     }
   }
 
-  if ('fpm' in $extensions) {
+  if ($use_phpfpm) {
     Php::Resource::Extension['fpm'] {
       has_service => true,
-    }
-    Class['php::config'] {
-      use_phpfpm => true
     }
   }
 }
