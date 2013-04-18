@@ -53,6 +53,6 @@ define php::resource::pool (
   file { "${name}.conf":
     ensure  => file,
     path    => "${php::params::fpm_pool_dir}/${name}.conf",
-    content => template('php/pool.d.conf.erb'),
+    content => template('php/fpm/pool.d.conf.erb'),
   }
 }
