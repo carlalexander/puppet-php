@@ -29,14 +29,14 @@ class php::config (
     force   => true
   }
 
-  file { $php::params::fpm_ini:
-    ensure  => file,
-    content => template('php/php.ini.erb'),
-  }
-
   if $use_phpfpm {
     file { $php::params::fpm_dir:
       ensure  => directory,
+    }
+
+    file { $php::params::fpm_ini:
+      ensure  => file,
+      content => template('php/php.ini.erb'),
     }
 
     file { $php::params::fpm_conf:
