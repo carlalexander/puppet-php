@@ -37,11 +37,13 @@ class php::config (
     file { $php::params::fpm_ini:
       ensure  => file,
       content => template('php/php.ini.erb'),
+      notify  => Service['php5-fpm']
     }
 
     file { $php::params::fpm_conf:
       ensure  => file,
       content => template('php/fpm/php-fpm.conf.erb'),
+      notify  => Service['php5-fpm']
     }
 
     file { $php::params::fpm_pool_dir:
