@@ -29,6 +29,11 @@ class php::config (
     force   => true
   }
 
+  file { $php::params::fpm_ini:
+    ensure  => file,
+    content => template('php/php.ini.erb'),
+  }
+
   if $use_phpfpm {
     file { $php::params::fpm_dir:
       ensure  => directory,
@@ -40,11 +45,6 @@ class php::config (
       recurse => true,
       force   => true,
       require => File[$php::params::fpm_dir]
-    }
-
-    file { $php::params::fpm_ini:
-      ensure  => file,
-      content => template('php/php.ini.erb'),
     }
   }
 }
