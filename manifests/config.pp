@@ -39,6 +39,11 @@ class php::config (
       ensure  => directory,
     }
 
+    file { $php::params::fpm_conf:
+      ensure  => file,
+      content => template('php/fpm/php-fpm.conf.erb'),
+    }
+
     file { $php::params::fpm_pool_dir:
       ensure  => directory,
       purge   => true,
