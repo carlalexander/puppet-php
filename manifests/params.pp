@@ -26,6 +26,7 @@ class php::params {
   $default_charset        = 'UTF-8'
   $allow_url_fopen        = 'Off'
   $default_socket_timeout = '30'
+  $timezone               = 'America/New_York'
 
   $mysql_allow_persistent = 'Off'
   $pgsql_allow_persistent = 'Off' 
