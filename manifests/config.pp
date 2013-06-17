@@ -34,6 +34,12 @@ class php::config (
       ensure  => directory,
     }
 
+    file { $php::params::cli_ini:
+      ensure  => file,
+      content => template('php/php.ini.erb'),
+      notify  => Service['php5-fpm']
+    }
+
     file { $php::params::fpm_ini:
       ensure  => file,
       content => template('php/php.ini.erb'),

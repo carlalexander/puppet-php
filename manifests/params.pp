@@ -30,6 +30,9 @@ class php::params {
   $mysql_allow_persistent = 'Off'
   $pgsql_allow_persistent = 'Off' 
   
+  $cli_dir                         = "${base_dir}/cli"
+  $cli_ini                         = "${cli_dir}/php.ini"
+  
   $fpm_dir                         = "${base_dir}/fpm"
   $fpm_pool_dir                    = "${fpm_dir}/pool.d"
   $fpm_ini                         = "${fpm_dir}/php.ini"
