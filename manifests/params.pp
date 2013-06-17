@@ -24,7 +24,7 @@ class php::params {
   $post_max_size          = '15M'
   $upload_max_filesize    = '15M'
   $default_charset        = 'UTF-8'
-  $allow_url_fopen        = 'Off'
+  $allow_url_fopen        = 'On'
   $default_socket_timeout = '30'
   $timezone               = 'America/New_York'
 
