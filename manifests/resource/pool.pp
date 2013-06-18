@@ -45,10 +45,10 @@ define php::resource::pool (
   $catch_workers_output      = 'yes',
 ) {
   File {
-    owner => 'root',
-    group => 'root',
-    mode  => '0644',
-    before  => Service['php5-fpm'],
+    owner  => 'root',
+    group  => 'root',
+    mode   => '0644',
+    notify => Service['php5-fpm'],
   }
 
   file { "${name}.conf":
