@@ -42,6 +42,7 @@ define php::resource::pool (
   $pm_process_idle_timeout   = '10s',
   $request_terminate_timeout = 30,
   $security_limit_extensions = '.php',
+  $catch_workers_output      = 'yes',
 ) {
   File {
     owner => 'root',

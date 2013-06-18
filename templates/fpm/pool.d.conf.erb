@@ -346,7 +346,7 @@ chdir = /
 ; Note: on highloaded environement, this can cause some delay in the page
 ; process time (several ms).
 ; Default Value: no
-;catch_workers_output = yes
+catch_workers_output = <%= catch_workers_output %>
 
 ; Limits the extensions of the main script FPM will allow to parse. This can
 ; prevent configuration mistakes on the web server side. You should only limit
@@ -387,6 +387,6 @@ security.limit_extensions = <%= security_limit_extensions %>
 ;php_admin_value[sendmail_path] = /usr/sbin/sendmail -t -i -f www@my.domain.com
 php_flag[display_errors] = off
 php_admin_value[error_reporting] = 0
-php_admin_value[error_log] = /var/log/php5-fpm.log
+php_admin_value[error_log] = /var/log/pool-fpm-<%= name %>.log
 php_admin_flag[log_errors] = on
 php_admin_value[memory_limit] = 128M
