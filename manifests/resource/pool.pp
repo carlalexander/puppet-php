@@ -34,6 +34,7 @@ define php::resource::pool (
   $listen_group              = 'www-data',
   $listen_mode               = '0666',
   $listen_allowed_clients    = '127.0.0.1',
+  $log_dir                   = '/var/log',
   $pm                        = 'dynamic',
   $pm_max_children           = 5,
   $pm_start_servers          = 2,
@@ -49,6 +50,14 @@ define php::resource::pool (
     group  => 'root',
     mode   => '0644',
     notify => Service['php5-fpm'],
+  }
+
+  $log = "${log_dir}/fpm-pool-${name}.log"
+
+  file { $log
+    ensure => file,
+    owner  => $user,
+    group  => $group
   }
 
   file { "${name}.conf":
