@@ -54,7 +54,7 @@ define php::resource::pool (
 
   $log = "${log_dir}/fpm-pool-${name}.log"
 
-  file { $log
+  file { $log:
     ensure => file,
     owner  => $user,
     group  => $group
